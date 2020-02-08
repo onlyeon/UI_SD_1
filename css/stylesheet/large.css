@@ -1,0 +1,64 @@
+/* 데스크탑 디바이스 */
+body {
+  font-size: 1.6em;
+}
+/* 컨테이너 */
+.container {
+  justify-content: center;
+}
+/* 컨텐츠의 정렬
+1. justify-content: center
+2. margin: 0 auto */
+
+.appHeader, .appMain {
+  width: 1000px;
+}
+
+.appNavigation, .appFooter{
+  width: 100%;
+}
+
+/* 헤더 */
+/* 검색 폼 */
+.searchForm {
+  text-align: right;
+}
+
+/* input과 button은 Inline 요소이기 때문에 부모의 text-aling 속성을 상속받아 정렬될수 있다 */
+input[name="search"] {
+  width: 450px;
+}
+
+/* 메인 콘텐츠 */
+.appMain {
+  justify-content: space-between;
+  /* float 배치를 위한 예제 코드 display: block !important;
+  width: 1020px;
+  overflow: hidden; */
+}
+
+/* float 배치를 위한 예제 코드 .appMain > * {
+  float: left;
+  margin: 0 10px;
+} */
+.book {
+  width: 320px;
+}
+
+.news {
+  width: 660px;
+}
+
+.board {
+  width: 320px;
+}
+
+.favorite {
+  width: 220px;
+  order: 1;
+  /* float 배치를 위한 예제 코드 float: right; */
+}
+
+.twitter {
+  width: 420px;
+}

@@ -1,0 +1,58 @@
+/* 기본 박스 사이징 설정 */
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+/* 기본 링크 스타일 설정 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 본문 스타일 */
+html {
+  font-size: 10px;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+/* 컨테이너 */
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* 헤더 */
+
+/* 멤버 서비스 */
+.memberOnly {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.memberOnly a {
+  /* 인라인 상자인 박스 위/아래에 마우스가 접근시 클릭 가능하도록 처리
+  a 태그가 inline 요소이기 때문에 부모인 li 요소의 높이에는 영향을 주지 않는다 */
+  padding: 0.5em 0;
+}
+
+/* 검색 폼 */
+/* type 혹은 name 속성으로 선택한다 */
+input[name="search"]{
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 35px;
+  padding: 2px 1em;
+}
+
+/* 메인 콘텐츠 */
+.appMain {
+  display: flex;
+  flex-flow: row wrap;
+}

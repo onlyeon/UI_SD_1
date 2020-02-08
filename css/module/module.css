@@ -2,7 +2,7 @@
 /* 버튼 스타일 */
 .button{
   border: 1px solid #333;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 0.5em 1em;
   font-size: 1em;
   cursor: pointer;

@@ -2,6 +2,12 @@
 .resetMargin{
   margin: 0;
 }
+.resetMarginTop{
+  margin-top: 0;
+}
+.resetMarginBottom{
+  margin-top: 0;
+}
 .resetList{
   margin: 0;
   padding-left: 0;

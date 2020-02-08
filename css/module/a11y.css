@@ -1,10 +1,18 @@
 /* Common Hidden Content */
 
-legend, .a11yHidden{
-  position: absolute;
+/* 
+1: 화면에 공간을 차지하지 않도록
+2: 구형 브라우저를 위한 음수 마진
+3: 구형브라우저 지원을 위한 폴리필. 이미지를 잘라내는 속성, position과 함께 사용되어야한다. 
+4: 참고 https://bennettfeely.com/clippy/
+*/
+
+legend, .a11yHidden {
+  position: absolute; /* 1 */
   width: 1px;
   height: 1px;
+  margin: -1px; /* 2 */
   overflow: hidden;
-  clip: rect(0,0,0,0);
-  clip-path: polygon(0 0, 0 0, 0 0);
+  clip: rect(0,0,0,0); /* 3 */
+  clip-path: polygon(0 0, 0 0, 0 0); /* 4 */
 }
