@@ -1,111 +1,140 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-<!-- 적절한 언어와 국가 코드를 입력해주는것은 중요하다 -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- 
+  <!-- 적절한 언어와 국가 코드를 입력해주는것은 중요하다 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- 
     X-UA-Compatible: X로 시작하는건 대부분 비표준을 의미, User Agent
     content="ie=edge": 현재 인터넷 브라우저를 최신을 사용하라는 의미 -->
-  <title>웹카페 - HTML5, CSS3, Accessibility</title>
-  <!-- 
+    <title>웹카페 - HTML5, CSS3, Accessibility</title>
+    <!-- 
     title은 접근성에서 중요한 역할을 담당한다
     모든 페이지의 title은 유니크해야한다 (SEO에 영향) -->
-  <link rel="stylesheet" href="./css/webcafe.css">
-  <link rel="stylesheet" media="screen and (max-width: 999px)" href="./css/stylesheet/small.css">
-  <link rel="stylesheet" media="screen and (min-width: 1000px)" href="./css/stylesheet/large.css">
-  <!-- 인쇄 하고싶을 때 print CSS를 media에 선언해주면 된다 -->
-  <script src="./js/main.js" defer></script>
-  <!-- script 는 보통 body맨 마지막에 두어서 html의 다운로드가 다 끝난 후 java script를 가지고 온다. 이때 defer를 사용하면 script 태그의 위치에 관계없이 맨 마지막에 스크립트를 다운로드해 가져올 수 있도록 해주는 속성이다 -->
-</head>
-<body>
-  <div class="container">
-    <header class="appHeader">
-      <h1 class="brand">
-        <!-- emmet tip: a>img (부모노드>자식노드) -->
-        <a href="./main.html"><img src="./images/rwd-logo.png" alt="Web Cafe"></a>
-      </h1>
-      <ul class="memberOnly resetList">
-        <!-- emmet tip: a+span (a와 span이 형제) -->
-        <li><a href="#">로그인</a><span class="divider" aria-hidden="true">ㅣ</span></li>
-        <li><a href="#">회원가입</a><span class="divider" aria-hidden="true">ㅣ</span></li>
-        <li><a href="#">커뮤니티</a></li>
-      </ul>
-      <form action="https://formspree.io/xyyzgpvy" method="POST" class="searchForm" id="searchForm">
-        <fieldset class="resetBox">
-          <legend>검색 폼</legend>
-          <!-- label과 input을 for과 id로 연결해 명시적 레이블을 사용한다 -->
-          <label for="search" class="a11yHidden">검색어</label>
-          <!-- type: 컨트롤의 종류, id: 고유한 이름, name: 전송되는 값 -->
-          <input type="search" id="search" name="search" required placeholder="검색어를 입력하세요">
-          <!-- emmet tip: .button.buttonSearch (멀티 클래스) -->
-          <button form="searchForm" type="submit" class="button buttonSearch">검색</button>
-          <!-- button이 form 밖에 있는 경우에는 id와 form 속성으로 연결해서 마크업이 떨어져있어도 내용을 연결해줄 수 있다 -->
-        </fieldset>
-      </form>
-    </header>
-    <!-- mobile에서는 offcanvas 형식으로 보여진다 -->
-    <nav class="appNavigation menu">
-      <h2 class="a11yHidden">메인 메뉴</h2>
-      <button class="buttonBurger buttonNone" aria-label="메뉴 열기">
-        <span class="burgerBar round positionTop"></span>
-        <span class="burgerBar round positionMiddle"></span>
-        <span class="burgerBar round positionBottom"></span>
-      </button>
-      <ul class="menu__list resetList">
-        <li class="menu__item icon-plus">
-          <a href="#" class="menu__link">HTML에 대해</a>
-          <ul class="menu__subMenu">
-            <li><a href="#">HTML5 소개</a></li>
-            <li><a href="#">레퍼런스 소개</a></li>
-            <li><a href="#">활용 예제</a></li>
-          </ul>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">CSS에 대해</a>
-          <ul class="menu__subMenu">
-            <li><a href="#">CSS 소개</a></li>
-            <li><a href="#">CSS2 VS CSS3</a></li>
-            <li><a href="#">CSS 애니메이션</a></li>
-          </ul>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">웹표준/웹접근성</a>
-          <ul class="menu__subMenu">
-            <li><a href="#">웹표준 이란?</a></li>
-            <li><a href="#">웹접근성의 개요</a></li>
-            <li><a href="#">HTML5의 현재와 미래</a></li>
-          </ul>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">묻고 답하기</a>
-          <ul class="menu__subMenu">
-            <li><a href="#">묻고 답하기</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">1대1 질문</a></li>
-          </ul>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">자료실</a>
-          <ul class="menu__subMenu">
-            <li><a href="#">공개 자료실</a></li>
-            <li><a href="#">이미지 자료실</a></li>
-            <li><a href="#">예제 자료실</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <main class="appMain">
-      <!-- emmet tip: section[class]*5 -->
-      <section class="book">추천서적</section>
-      <section class="news">새소식</section>
-      <section class="board">게시판</section>
-      <section class="favorite">인기 사이트</section>
-      <article class="twitter">트위터</article>
-    </main>
-    <footer class="appFooter">푸터</footer>
-    <!-- emmet tip: footer.appFooter{푸터} -->
-  </div>
-</body>
+    <link rel="stylesheet" href="./css/webcafe.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 999px)"
+      href="./css/stylesheet/small.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 1000px)"
+      href="./css/stylesheet/large.css"
+    />
+    <!-- 인쇄 하고싶을 때 print CSS를 media에 선언해주면 된다 -->
+    <script src="./js/main.js" defer></script>
+    <!-- script 는 보통 body맨 마지막에 두어서 html의 다운로드가 다 끝난 후 java script를 가지고 온다. 이때 defer를 사용하면 script 태그의 위치에 관계없이 맨 마지막에 스크립트를 다운로드해 가져올 수 있도록 해주는 속성이다 -->
+  </head>
+  <body>
+    <div class="container">
+      <header class="appHeader">
+        <h1 class="brand">
+          <!-- emmet tip: a>img (부모노드>자식노드) -->
+          <a href="./main.html"
+            ><img src="./images/rwd-logo.png" alt="Web Cafe"
+          /></a>
+        </h1>
+        <ul class="memberOnly resetList">
+          <!-- emmet tip: a+span (a와 span이 형제) -->
+          <li>
+            <a href="#">로그인</a
+            ><span class="divider" aria-hidden="true">ㅣ</span>
+          </li>
+          <li>
+            <a href="#">회원가입</a
+            ><span class="divider" aria-hidden="true">ㅣ</span>
+          </li>
+          <li><a href="#">커뮤니티</a></li>
+        </ul>
+        <form
+          action="https://formspree.io/xyyzgpvy"
+          method="POST"
+          class="searchForm"
+          id="searchForm"
+        >
+          <fieldset class="resetBox">
+            <legend>검색 폼</legend>
+            <!-- label과 input을 for과 id로 연결해 명시적 레이블을 사용한다 -->
+            <label for="search" class="a11yHidden">검색어</label>
+            <!-- type: 컨트롤의 종류, id: 고유한 이름, name: 전송되는 값 -->
+            <input
+              type="search"
+              id="search"
+              name="search"
+              required
+              placeholder="검색어를 입력하세요"
+            />
+            <!-- emmet tip: .button.buttonSearch (멀티 클래스) -->
+            <button form="searchForm" type="submit" class="button buttonSearch">
+              검색
+            </button>
+            <!-- button이 form 밖에 있는 경우에는 id와 form 속성으로 연결해서 마크업이 떨어져있어도 내용을 연결해줄 수 있다 -->
+          </fieldset>
+        </form>
+      </header>
+      <!-- mobile에서는 offcanvas 형식으로 보여진다 -->
+      <nav class="appNavigation menu">
+        <h2 class="a11yHidden">메인 메뉴</h2>
+        <button class="buttonBurger buttonNone" aria-label="메뉴 열기">
+          <span class="burgerBar round positionTop"></span>
+          <span class="burgerBar round positionMiddle"></span>
+          <span class="burgerBar round positionBottom"></span>
+        </button>
+        <ul class="menu__list resetList">
+          <li class="menu__item icon-plus">
+            <a href="#" class="menu__link">HTML에 대해</a>
+            <ul class="menu__subMenu">
+              <li><a href="#">HTML5 소개</a></li>
+              <li><a href="#">레퍼런스 소개</a></li>
+              <li><a href="#">활용 예제</a></li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">CSS에 대해</a>
+            <ul class="menu__subMenu">
+              <li><a href="#">CSS 소개</a></li>
+              <li><a href="#">CSS2 VS CSS3</a></li>
+              <li><a href="#">CSS 애니메이션</a></li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">웹표준/웹접근성</a>
+            <ul class="menu__subMenu">
+              <li><a href="#">웹표준 이란?</a></li>
+              <li><a href="#">웹접근성의 개요</a></li>
+              <li><a href="#">HTML5의 현재와 미래</a></li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">묻고 답하기</a>
+            <ul class="menu__subMenu">
+              <li><a href="#">묻고 답하기</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">1대1 질문</a></li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">자료실</a>
+            <ul class="menu__subMenu">
+              <li><a href="#">공개 자료실</a></li>
+              <li><a href="#">이미지 자료실</a></li>
+              <li><a href="#">예제 자료실</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <main class="appMain">
+        <!-- emmet tip: section[class]*5 -->
+        <section class="book">추천서적</section>
+        <section class="news">새소식</section>
+        <section class="board">게시판</section>
+        <section class="favorite">인기 사이트</section>
+        <article class="twitter">트위터</article>
+      </main>
+      <footer class="appFooter">푸터</footer>
+      <!-- emmet tip: footer.appFooter{푸터} -->
+    </div>
+  </body>
 </html>
