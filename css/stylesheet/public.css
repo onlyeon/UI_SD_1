@@ -56,3 +56,201 @@ input[name="search"]{
   display: flex;
   flex-flow: row wrap;
 }
+
+/* 메인 콘텐츠 Sprite 이미지 */
+.sprite {
+  background-image: url(../images/sprite_main.png);
+  background-repeat: no-repeat;
+  /* 스프라이트 속성을 쓸 때는 대표속성이 아니라 개별속성을 사용하는것이 훨씬 좋다! (성능은 대표속성이 빠르다) */
+  /* background: url(../images/sprite_main.png) no-repeat; */
+  min-height: 60px;
+  max-height: 114px;
+  padding-left: 65px;
+}
+
+.spriteBook{
+  background-position: 0 0;
+}
+.spriteNews{
+  background-position: 0 -230px;
+}
+.spriteBoard{
+  background-position: 0 -115px;
+}
+.spriteFavorite{
+  background-position: 0 -345px;
+}
+.spriteTwitter{
+  background-position: 0 -460px;
+}
+
+/* 메인 콘텐츠 공통 */
+.appMain [class*="__title"] {
+  font-size: 1.8rem;
+  /* 
+  1. 정렬을 line-height를 30으로 주고, vertical-align으로 위치를 조정하는 방식으로 적용하는 방법
+  2. Flex로 정렬하는 방법 두가지가 있다 */
+  line-height: 30px;
+}
+
+.appMain [class*="__enTitle"] {
+  display: block;
+}
+
+.appMain [class*="__summury"] {
+  line-height: 1.5;
+}
+
+/* 추천 서적 */
+.book__cover,
+.book__info {
+  text-align: center;
+}
+
+.book__cover figcaption {
+  margin-top: 1em;
+}
+
+.book__info dt,
+.book__info dd {
+  display: inline-block;
+  margin-left: 0;
+}
+
+.book__info [aria-label] {
+  display: block;
+  font-size: 2.5rem;
+}
+
+/* 게시판 */
+.board {
+  position: relative;
+}
+
+.board__list {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.board__list li {
+  margin: 1em 0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.board__list a{
+  /* width: calc(100% - 확정된 아이콘/타임 width); */
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.board__more {
+  position: absolute;
+  top: 1em;
+  right: -0.5em;
+  padding: 0.5em;
+}
+
+/* 인기 사이트 */
+.favorite__list {
+  list-style: none;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+
+.favorite__list li {
+  counter-increment: number;
+  margin: 1em 0;
+}
+
+.favorite__list li::before {
+  content: counter(number);
+  padding: 2px 10px;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background-color: #eea60a;
+  color: #fff;
+}
+
+.favorite__list a {
+  position: relative;
+}
+
+.favorite__list a:hover::after {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  content: attr(data-tooltip);
+  padding: .5em;
+  border: 1px solid #c58805b4;
+  background-color: #ffae0071;
+  color: #ff7300;
+  width: 10em;
+  z-index: 999;
+}
+
+/* 트위터 */
+.twitter__container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto;
+  gap: 0 20px;
+  grid-template-areas:
+  "info profile"
+  "summary profile"
+  "date profile";
+}
+
+.twitter__userInfo {
+  grid-area: info;
+  margin-top: 0;
+}
+
+.twitter__userInfo dd {
+  margin-left: 0;
+  display: inline-block;
+}
+
+.twitter__userProfile {
+  grid-area: profile;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: right;
+  gap: 0 20px;
+}
+
+.twitter__summary {
+  grid-area: summary;
+}
+
+.twitter__date {
+  grid-area: date;
+}
+
+/* 푸터 */
+.appFooter {
+  color: #fff;
+  background:
+  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  text-align: center;
+  padding: 3em 2em;
+}
+
+.address {
+  font-style: normal;
+}
+
+.copyright {
+  display: block;
+  font-size: 1em;
+  margin-top: 1em;
+}

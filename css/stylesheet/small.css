@@ -185,3 +185,12 @@ input[name="search"] {
 .twitter {
   width: 100%;
 }
+
+/* 푸터 */
+.appFooter {
+  text-align: left;
+  margin-top: 3em;
+}
+.address span {
+  display: bolck;
+}
